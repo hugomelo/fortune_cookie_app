@@ -20,14 +20,26 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+
+    <script src="js/config.js"></script>
+
+    <!-- controllers -->
+    <script src="js/controllers/fortune_controller.js"></script>
+
+
   </head>
-  <body ng-app="starter">
+  <body ng-app="fortune" ng-controller="FortuneCtlr" ng-init="init();">
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+        <h1 class="title">Fortune Cookie App</h1>
       </ion-header-bar>
       <ion-content>
+        
+        <strong>Your fortune phrase is..</strong>
+        <p class="phrase">{{ phrase }}</p>
+        <button ng-click="loadPhrase()">Try another</button>
+        <p class='error' ng-if="error_message != ''">{{ error_message }}</p>
       </ion-content>
     </ion-pane>
   </body>
