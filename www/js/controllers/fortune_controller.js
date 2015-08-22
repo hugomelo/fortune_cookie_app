@@ -4,7 +4,7 @@ fortuneApp.controller('FortuneCtlr', function($scope, $http) {
 		$scope.phrase = $scope.loadPhrase();
 	},
 
-	$scope.phraseUrl: function() {
+	$scope.phraseUrl = function() {
 		return config.apiUrl + "/random_phrase";
 	},
 
@@ -15,7 +15,7 @@ fortuneApp.controller('FortuneCtlr', function($scope, $http) {
     $http.get($scope.phraseUrl())
       .then(function(resp) {
       	console.log(resp);
-        $scope.phrase(resp.data.phrase);
+        $scope.phrase = resp.data.phrase;
       }, function(err) {
         $scope.error_message = "No luck! It was not possible to retrieve a new luck phrase";
       });
